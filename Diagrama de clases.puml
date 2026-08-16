@@ -61,6 +61,35 @@ class Organizador{
     mostrar()
 }
 
+class Tematica{
+    nombre
+    descripcion
+
+    crear()
+    mostrar()
+}
+
+class Pago{
+    fechaLimite
+    monto
+    cuotas
+    seña:bool
+    valorSeña
+    cuotas: Cuota
+
+    crear()
+    mostrar()
+    conocerCuota()
+    calcularValorCuota()
+}
+
+class MetodoPago{
+    nombre
+    descripcion
+
+    crear()
+    mostrar()
+}
 
 note bottom of Estado : Los metodos de seteo aplicados en esta \n clase se extienden para todo el diagrama
 
