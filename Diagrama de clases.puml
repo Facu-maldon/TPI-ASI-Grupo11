@@ -29,4 +29,39 @@ class Retiro{
     compartir()
 }
 
+class Valoracion{
+    puntuacion
+    comentario
+    multimedia
+    volveriaAIr:bool
+
+    crear()
+    mostrar()
+    cargarMultimedia()
+}
+
+class Estado{
+    nombre
+    descripcion
+
+    crear()
+    mostrar()
+    tomarNombre()
+    tomarDescripcion()
+    mostrarNombre()
+    mostrarDescripcion()
+}
+
+class Organizador{
+    nombre
+    correoElectronico
+    telefono
+
+    crear()
+    mostrar()
+}
+
+
+note bottom of Estado : Los metodos de seteo aplicados en esta \n clase se extienden para todo el diagrama
+
 @enduml
