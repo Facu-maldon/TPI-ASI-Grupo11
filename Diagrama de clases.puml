@@ -1,0 +1,32 @@
+@startuml retiros
+
+class Retiro{
+    nombre
+    costoTotal
+    fechaInicio
+    fechaFin
+    ubicacion
+    descripcion
+    cancelable:bool
+    pago:Pago
+    tematica:Tematica
+    estado:Estado
+    cronograma:Cronograma
+    organizador:Organizador
+    alertas:Alerta
+    valoraciones:Valoracion
+
+    crear()
+    mostrar()
+    conocerPago()
+    conocerTematica()
+    conocerCronograma()
+    conocerOrganizador()
+    conocerAlerta()
+    conocerEstado()
+    conocerValoracion()
+    agregarValoracion()
+    compartir()
+}
+
+@enduml
