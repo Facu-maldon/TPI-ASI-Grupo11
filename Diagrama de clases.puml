@@ -114,6 +114,7 @@ class Actividad{
     mostrar()
     conocerMetodoPago()
  }
+
 class Cronograma{
     actividades:Actividad
 
@@ -123,6 +124,35 @@ class Cronograma{
     agregarActividad()
     eliminarActividad()
     modificarActividad()
+}
+
+class Acompañante {
+    nombre
+    vinculo
+
+    crear()
+    mostrar()
+}
+
+class Alerta{
+    fechaAviso
+    horaAviso
+    tipoAlerta
+    tipo: TipoAlerta
+
+    crear()
+    mostrar()
+    conocerTipoAlerta()
+}
+
+class TipoAlerta{
+    nombre
+    mensaje
+
+    crear()
+    mostrar()
+
+
 }
 
 
