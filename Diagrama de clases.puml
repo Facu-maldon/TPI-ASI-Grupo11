@@ -158,4 +158,21 @@ class TipoAlerta{
 
 note bottom of Estado : Los metodos de seteo aplicados en esta \n clase se extienden para todo el diagrama
 
+<<<<<<< HEAD
+=======
+Retiro --> "0..1" Valoracion
+Retiro --> "1" Estado
+Retiro --> "1" Organizador
+Retiro --> "1" Tematica
+Retiro --> "0..1" Pago
+Retiro --> "1" Cronograma
+Retiro --> "0..*" Acompañante
+Retiro --> "0..*" Alerta
+
+Pago --> "1..*" Cuota
+Cuota --> "1" MetodoPago
+Cronograma --> "1..*" Actividad
+Alerta --> "1" TipoAlerta
+
+>>>>>>> 926441b (Agrega relaciones, multiplicidad y cierre del diagrama UML)
 @enduml
