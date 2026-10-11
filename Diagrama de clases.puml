@@ -1,0 +1,175 @@
+@startuml retiros
+
+class Retiro{
+    nombre
+    costoTotal
+    fechaInicio
+    fechaFin
+    ubicacion
+    descripcion
+    cancelable:bool
+    pago:Pago
+    tematica:Tematica
+    estado:Estado
+    cronograma:Cronograma
+    organizador:Organizador
+    alertas:Alerta
+    valoraciones:Valoracion
+
+    crear()
+    mostrar()
+    conocerPago()
+    conocerTematica()
+    conocerCronograma()
+    conocerOrganizador()
+    conocerAlerta()
+    conocerEstado()
+    conocerValoracion()
+    agregarValoracion()
+    compartir()
+}
+
+class Valoracion{
+    puntuacion
+    comentario
+    multimedia
+    volveriaAIr:bool
+
+    crear()
+    mostrar()
+    cargarMultimedia()
+}
+
+class Estado{
+    nombre
+    descripcion
+
+    crear()
+    mostrar()
+    tomarNombre()
+    tomarDescripcion()
+    mostrarNombre()
+    mostrarDescripcion()
+}
+
+class Organizador{
+    nombre
+    correoElectronico
+    telefono
+
+    crear()
+    mostrar()
+}
+
+class Tematica{
+    nombre
+    descripcion
+
+    crear()
+    mostrar()
+}
+
+class Pago{
+    fechaLimite
+    monto
+    cuotas
+    seña:bool
+    valorSeña
+    cuotas: Cuota
+
+    crear()
+    mostrar()
+    conocerCuota()
+    calcularValorCuota()
+}
+
+class MetodoPago{
+    nombre
+    descripcion
+
+    crear()
+    mostrar()
+}
+
+class Actividad{
+    nombre
+    fecha
+    hora
+    duracion
+    descripcion
+    limitaciones
+    costo
+
+    crear()
+    mostrar()
+}
+ class Cuota {
+    numeroCuota
+    importe
+    fechaVencimiento
+    fechaPago
+    metodoPago: MetodoPago
+
+    crear()
+    mostrar()
+    conocerMetodoPago()
+ }
+
+class Cronograma{
+    actividades:Actividad
+
+    crear()
+    mostrar()
+    conocerActividad()
+    agregarActividad()
+    eliminarActividad()
+    modificarActividad()
+}
+
+class Acompañante {
+    nombre
+    vinculo
+
+    crear()
+    mostrar()
+}
+
+class Alerta{
+    fechaAviso
+    horaAviso
+    tipoAlerta
+    tipo: TipoAlerta
+
+    crear()
+    mostrar()
+    conocerTipoAlerta()
+}
+
+class TipoAlerta{
+    nombre
+    mensaje
+
+    crear()
+    mostrar()
+
+
+}
+
+
+note bottom of Estado : Los metodos de seteo aplicados en esta \n clase se extienden para todo el diagrama
+
+Retiro --> "0..1" Valoracion
+Retiro --> "1" Estado
+Retiro --> "1" Organizador
+Retiro --> "1" Tematica
+Retiro --> "0..1" Pago
+Retiro --> "1" Cronograma
+Retiro --> "0..*" Acompañante
+Retiro --> "0..*" Alerta
+
+Pago --> "1..*" Cuota
+Cuota --> "1" MetodoPago
+Cronograma --> "1..*" Actividad
+Alerta --> "1" TipoAlerta
+
+@enduml
