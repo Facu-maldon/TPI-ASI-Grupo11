@@ -1,0 +1,36 @@
+@startuml
+hide empty description
+skinparam state {
+  BackgroundColor LightCyan
+  BorderColor DarkSlateGray
+  ArrowColor Black
+}
+
+' Estado Inicial corregido (ahora es del Retiro, no del usuario)
+[*] --> Registrado : 1. Registrar retiro
+
+' Transiciones desde Registrado
+Registrado --> Reservado : 10. Registrar pago (seña)
+Registrado --> Pagado : 10. Registrar pago (total)
+Registrado --> Cancelado : 7. Dar retiro de baja
+Registrado --> Cancelado : 15. Dar de baja retiro por vencimiento (tiempo)
+
+' Transiciones desde Reservado
+Reservado --> Pagado : 11. Registrar Cuota (monto restante)
+Reservado --> Cancelado : 7. Dar retiro de baja
+Reservado --> Cancelado : 15. Dar de baja retiro por vencimiento (tiempo)
+
+' Transiciones desde Pagado (Se elimina el paso del tiempo automático para finalizar)
+Pagado --> Cancelado : 7. Dar retiro de baja
+Pagado --> Asistido : 13. Registrar asistencia
+Pagado --> Cancelado : 15. Dar de baja retiro por vencimiento (tiempo)
+
+' Transición post-retiro (Valoración)
+Asistido --> Valorado : 9. Registrar Valoracion
+
+' Estados Finales
+Valorado --> [*]
+Cancelado --> [*]
+Asistido --> [*]
+
+@enduml
